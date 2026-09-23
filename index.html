@@ -1,19 +1,93 @@
-<!-- Agrega este contenedor en tu página donde quieras que aparezca el QR -->
-<div id="qrcode" style="text-align: center; margin-top: 20px;"></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIRB - Simposio Internacional de Reproducción y Biotecnología</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f8; margin: 0; padding: 20px; }
+        .form-card { max-width: 520px; margin: auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: #1a365d; text-align: center; margin-bottom: 5px; font-size: 22px; }
+        p.subtitle { text-align: center; color: #4a5568; font-size: 14px; margin-bottom: 20px; font-weight: bold; }
+        label { display: block; margin-top: 12px; color: #2d3748; font-weight: bold; font-size: 14px; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #cbd5e0; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+        button { width: 100%; background-color: #2b6cb0; color: white; padding: 12px; border: none; border-radius: 4px; font-size: 16px; margin-top: 20px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #2c5282; }
+        .status { text-align: center; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
 
-<!-- Librería de generación de QR -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<div class="form-card">
+    <h2>SIRB</h2>
+    <p class="subtitle">Simposio Internacional de Reproducción y Biotecnología<br><span style="font-weight:normal; font-size:12px; color:#718096;">Formulario de Registro y Contacto</span></p>
+    
+    <form id="sirbForm">
+        <label for="nombre">Nombre Completo *</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Ej: Dr. Carlos Mendoza">
+
+        <label for="telefono">Teléfono / WhatsApp *</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="+58 412 123 4567">
+
+        <label for="institucion">Institución / Empresa / Ganadería *</label>
+        <input type="text" id="institucion" name="institucion" required placeholder="Ej: Agropecuaria La Esperanza / LUZ">
+
+        <label for="perfil">Perfil Profesional / Ocupación</label>
+        <select id="perfil" name="perfil">
+            <option value="Médico Veterinario / Zootecnista">Médico Veterinario / Zootecnista</option>
+            <option value="Productores / Ganaderos">Productor / Ganadero</option>
+            <option value="Investigador / Docente">Investigador / Docente</option>
+            <option value="Estudiante de Pregrado / Posgrado">Estudiante de Pregrado / Posgrado</option>
+            <option value="Empresa / Proveedor de Insumos">Empresa / Proveedor de Insumos</option>
+            <option value="Otro">Otro</option>
+        </select>
+
+        <label for="interes">Área de Interés Principal</label>
+        <select id="interes" name="interes">
+            <option value="Inseminación Artificial / IATF">Inseminación Artificial / IATF</option>
+            <option value="Transferencia de Embirones (FIV)">Transferencia de Embriones (FIV)</option>
+            <option value="Genómica y Selección Animal">Genómica y Selección Animal</option>
+            <option value="Biotecnologías Reproductivas en Bovinos">Biotecnologías Reproductivas en Bovinos</option>
+            <option value="Equinos / Pequeños Rumiantes">Equinos / Pequeños Rumiantes</option>
+            <option value="Comercial / Adquisición de Equipos y Medicamentos">Comercial / Adquisición de Equipos y Medicamentos</option>
+        </select>
+
+        <label for="notas">Preguntas o Comentarios</label>
+        <textarea id="notas" name="notas" rows="3" placeholder="Indica si deseas información sobre conferencias, talleres o cotizaciones de biotecnología..."></textarea>
+
+        <button type="submit" id="btnSubmit">Registrar Asistencia</button>
+    </form>
+    <div id="status" class="status"></div>
+</div>
 
 <script>
-  // Reemplaza con la URL pública de tu formulario alojado
-  const urlFormulario = "https://tu-usuario.github.io/expo-ganadera/";
+    // REEMPLAZA ESTA URL CON TU GOOGLE APPS SCRIPT URL
+    const scriptURL = 'TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI'; 
+    const form = document.getElementById('sirbForm');
+    const statusDiv = document.getElementById('status');
+    const btnSubmit = document.getElementById('btnSubmit');
 
-  new QRCode(document.getElementById("qrcode"), {
-    text: urlFormulario,
-    width: 200,
-    height: 200,
-    colorDark : "#2c3e50",
-    colorLight : "#ffffff",
-    correctLevel : QRCode.CorrectLevel.H
-  });
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btnSubmit.disabled = true;
+        statusDiv.style.color = '#2b6cb0';
+        statusDiv.textContent = 'Enviando registro...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                statusDiv.style.color = '#27ae60';
+                statusDiv.textContent = '¡Registro completado exitosamente!';
+                form.reset();
+                btnSubmit.disabled = false;
+                setTimeout(() => { statusDiv.textContent = ''; }, 4000);
+            })
+            .catch(error => {
+                statusDiv.style.color = '#e74c3c';
+                statusDiv.textContent = 'Error al enviar. Intenta de nuevo.';
+                btnSubmit.disabled = false;
+            });
+    });
 </script>
+
+</body>
+</html>
