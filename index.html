@@ -1,0 +1,19 @@
+<!-- Agrega este contenedor en tu página donde quieras que aparezca el QR -->
+<div id="qrcode" style="text-align: center; margin-top: 20px;"></div>
+
+<!-- Librería de generación de QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+  // Reemplaza con la URL pública de tu formulario alojado
+  const urlFormulario = "https://tu-usuario.github.io/expo-ganadera/";
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: urlFormulario,
+    width: 200,
+    height: 200,
+    colorDark : "#2c3e50",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+</script>
