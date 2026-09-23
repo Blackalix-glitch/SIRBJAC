@@ -23,20 +23,28 @@
         }
         .logo-container {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            background-color: #ffffff; /* Fondo blanco interno para resaltar los logos */
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .logo-container img {
-            max-width: 180px;
+            max-width: 100%;
             height: auto;
+            max-height: 55px;
+            object-fit: contain;
         }
         .brand-title {
             text-align: center;
             color: #ffffff;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         h2 { 
             color: #ffffff; 
@@ -117,17 +125,25 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        .signature {
+            text-align: right;
+            font-size: 10px;
+            color: #444444;
+            margin-top: 15px;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
 
 <div class="form-card">
-    <div class="brand-title">JAC AUTO AGRO MARACAIBO</div>
-    
+    <!-- Contenedor con fondo blanco adaptado para que los logos oscuros se vean perfectos -->
     <div class="logo-container">
-        <!-- Reemplaza la URL del logo con 'logo.png' si subes tu imagen a GitHub -->
-        <img src="https://via.placeholder.com/180x60/2a2a2a/ffffff?text=JAC+AUTO+AGRO" alt="JAC AUTO AGRO Logo" id="logoImg">
+        <img src="logos.png" alt="Auto Agro de Maracaibo - JAC - BEL" id="logoImg">
     </div>
+
+    <div class="brand-title">JAC AUTO AGRO MARACAIBO</div>
 
     <h2>SIRB</h2>
     <p class="subtitle">Simposio Internacional de Reproducción y Biotecnología<br><span style="color:#888888; font-size:12px;">Cotización y Registro de Asistentes</span></p>
@@ -159,7 +175,7 @@
             <option value="JAC T9 Aventura 4x4 (Pick-up Carga)">JAC T9 Aventura 4x4 (Pick-up Carga)</option>
             <option value="JAC La Venezolana 2.8L Diésel (Pick-up)">JAC La Venezolana 2.8L Diésel (Pick-up)</option>
             <option value="JAC X100 Ferretero / 1.5 Ton">JAC X100 Ferretero / 1.5 Ton</option>
-            <option value="JAC C-3500 4x4 (Utilitario Chasis Chasis)">JAC C-3500 4x4 (Utilitario Chasis)</option>
+            <option value="JAC C-3500 4x4 (Utilitario Chasis)">JAC C-3500 4x4 (Utilitario Chasis)</option>
             <!-- Camiones Chasis Livianos y Medianos -->
             <option value="JAC Urban Chasis 3 Ton">JAC Urban Chasis 3 Ton</option>
             <option value="JAC Urban Ferretero 3 Ton">JAC Urban Ferretero 3 Ton</option>
@@ -173,15 +189,17 @@
             <option value="JAC Búfalo HFC1131 12 Ton">JAC Búfalo HFC1131 12 Ton</option>
             <option value="JAC Leyenda 340 HP (20 Toneladas)">JAC Leyenda 340 HP (20 Toneladas)</option>
             <option value="JAC Bachaco 400 HP / Chuto HFC4251 (40 Ton)">JAC Bachaco 400 HP / Chuto 40-45 Ton</option>
+            <option value="Otro">Otro (Especificar en comentarios)</option>
         </select>
 
         <label for="notas">Requerimientos o Comentarios</label>
-        <textarea id="notas" name="notas" rows="3" placeholder="Indica tipo de carrocería ganadera requerida, cantidad de flota, financiamiento..."></textarea>
+        <textarea id="notas" name="notas" rows="3" placeholder="Indica tipo de carrocería ganadera requerida, modelo específico o detalles del financiamiento..."></textarea>
 
         <button type="submit" id="btnSubmit">Solicitar Cotización / Registro</button>
     </form>
     <div id="status" class="status"></div>
     <div class="footer-location">Maracaibo • Zulia • Venezuela</div>
+    <div class="signature">Desarrollado por AMGG</div>
 </div>
 
 <script>
@@ -212,6 +230,9 @@
             });
     });
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
