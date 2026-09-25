@@ -235,12 +235,20 @@
             </div>
         </div>
 
-        <label for="institucion">Empresa / Ganadería / Ciudad *</label>
-        <input type="text" id="institucion" name="institucion" required placeholder="Ej: Agropecuaria El Tule / Maracaibo">
+        <div class="row">
+            <div class="col">
+                <label for="empresa">Empresa / Institución *</label>
+                <input type="text" id="empresa" name="empresa" required placeholder="Ej: Auto Agro">
+            </div>
+            <div class="col">
+                <label for="ciudad">Ciudad *</label>
+                <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Maracaibo">
+            </div>
+        </div>
 
         <label for="perfil">Perfil Profesional / Ocupación</label>
         <select id="perfil" name="perfil">
-            <option value="Productor / Ganadero">Productor / Ganadero</option>
+            <option value="Productor / Empresario">Productor / Empresario</option>
             <option value="Comerciante">Comerciante</option>
             <option value="Médico Veterinario / Zootecnista">Médico Veterinario / Zootecnista</option>
             <option value="Investigador / Docente">Investigador / Docente</option>
@@ -266,7 +274,7 @@
             <option value="JAC HFC1071 5 Ton">JAC HFC1071 5 Ton</option>
             <option value="JAC 6T Chasis (6 Toneladas)">JAC 6T Chasis (6 Toneladas)</option>
             <option value="JAC 6T Ferretero (6 Toneladas)">JAC 6T Ferretero (6 Toneladas)</option>
-            <!-- Camiones Pesados Ganaderos -->
+            <!-- Camiones Pesados -->
             <option value="JAC HFC1090 8 Ton (Chasis Largo)">JAC HFC1090 8 Ton (Chasis Largo)</option>
             <option value="JAC Búfalo HFC1131 12 Ton">JAC Búfalo HFC1131 12 Ton</option>
             <option value="JAC Leyenda 340 HP (20 Toneladas)">JAC Leyenda 340 HP (20 Toneladas)</option>
@@ -286,7 +294,7 @@
         </div>
 
         <label for="notas">Requerimientos o Comentarios</label>
-        <textarea id="notas" name="notas" rows="3" placeholder="Indica tipo de carrocería ganadera requerida, detalles específicos, etc..."></textarea>
+        <textarea id="notas" name="notas" rows="3" placeholder="Indica detalles específicos o requerimientos adicionales..."></textarea>
 
         <button type="submit" id="btnSubmit">Solicitar Cotización / Registro</button>
     </form>
