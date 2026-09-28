@@ -106,9 +106,13 @@
         input::placeholder, textarea::placeholder {
             color: #777777;
         }
-        select option {
+        select option, select optgroup {
             background-color: #2a2a2a;
             color: #ffffff;
+        }
+        optgroup {
+            font-weight: bold;
+            color: #d32f2f;
         }
         button { 
             width: 100%; 
@@ -236,24 +240,39 @@
 
         <label for="interes">Modelo de Interés</label>
         <select id="interes" name="interes">
-            <!-- Pick-ups / Utilitarios Livianos -->
-            <option value="JAC T9 Aventura 4x4 (Pick-up Carga)">JAC T9 Aventura 4x4 (Pick-up Carga)</option>
-            <option value="JAC La Venezolana 2.8L Diésel (Pick-up)">JAC La Venezolana 2.8L Diésel (Pick-up)</option>
-            <option value="JAC X100 Ferretero / 1.5 Ton">JAC X100 Ferretero / 1.5 Ton</option>
-            <option value="JAC C-3500 4x4 (Utilitario Chasis)">JAC C-3500 4x4 (Utilitario Chasis)</option>
-            <!-- Camiones Chasis Livianos y Medianos -->
-            <option value="JAC Urban Chasis 3 Ton">JAC Urban Chasis 3 Ton</option>
-            <option value="JAC Urban Ferretero 3 Ton">JAC Urban Ferretero 3 Ton</option>
-            <option value="JAC Doble Cabina 3 Ton">JAC Doble Cabina 3 Ton</option>
-            <option value="JAC HFC1040 3.5 Ton Chasis">JAC HFC1040 3.5 Ton Chasis</option>
-            <option value="JAC HFC1071 5 Ton">JAC HFC1071 5 Ton</option>
-            <option value="JAC 6T Chasis (6 Toneladas)">JAC 6T Chasis (6 Toneladas)</option>
-            <option value="JAC 6T Ferretero (6 Toneladas)">JAC 6T Ferretero (6 Toneladas)</option>
-            <!-- Camiones Pesados -->
-            <option value="JAC HFC1090 8 Ton (Chasis Largo)">JAC HFC1090 8 Ton (Chasis Largo)</option>
-            <option value="JAC Búfalo HFC1131 12 Ton">JAC Búfalo HFC1131 12 Ton</option>
-            <option value="JAC Leyenda 340 HP (20 Toneladas)">JAC Leyenda 340 HP (20 Toneladas)</option>
-            <option value="JAC Bachaco 400 HP / Chuto HFC4251 (40 Ton)">JAC Bachaco 400 HP / Chuto 40-45 Ton</option>
+            <optgroup label="--- VANS / BUSETA JAC ARENA ---">
+                <option value="JAC Arena Pasajeros (16 + 1)">JAC Arena Pasajeros (16 + 1)</option>
+                <option value="JAC Arena Panel de Carga (Cargo Van)">JAC Arena Panel de Carga (Cargo Van)</option>
+                <option value="JAC Arena Refrigerado / Cava Térmica">JAC Arena Refrigerado / Cava Térmica</option>
+                <option value="JAC Arena Transporte Escolar / Institucional">JAC Arena Transporte Escolar / Institucional</option>
+                <option value="JAC Arena Ambulancia / Salud">JAC Arena Ambulancia / Salud</option>
+                <option value="JAC Arena Ejecutiva / Turismo">JAC Arena Ejecutiva / Turismo</option>
+            </optgroup>
+
+            <optgroup label="--- PICK-UPS Y UTILITARIOS ---">
+                <option value="JAC T9 Aventura 4x4 (Pick-up Carga)">JAC T9 Aventura 4x4 (Pick-up Carga)</option>
+                <option value="JAC La Venezolana 2.8L Diésel (Pick-up)">JAC La Venezolana 2.8L Diésel (Pick-up)</option>
+                <option value="JAC X100 Ferretero / 1.5 Ton">JAC X100 Ferretero / 1.5 Ton</option>
+                <option value="JAC C-3500 4x4 (Utilitario Chasis)">JAC C-3500 4x4 (Utilitario Chasis)</option>
+            </optgroup>
+
+            <optgroup label="--- CAMIONES LIVIANOS Y MEDIANOS ---">
+                <option value="JAC Urban Chasis 3 Ton">JAC Urban Chasis 3 Ton</option>
+                <option value="JAC Urban Ferretero 3 Ton">JAC Urban Ferretero 3 Ton</option>
+                <option value="JAC Doble Cabina 3 Ton">JAC Doble Cabina 3 Ton</option>
+                <option value="JAC HFC1040 3.5 Ton Chasis">JAC HFC1040 3.5 Ton Chasis</option>
+                <option value="JAC HFC1071 5 Ton">JAC HFC1071 5 Ton</option>
+                <option value="JAC 6T Chasis (6 Toneladas)">JAC 6T Chasis (6 Toneladas)</option>
+                <option value="JAC 6T Ferretero (6 Toneladas)">JAC 6T Ferretero (6 Toneladas)</option>
+            </optgroup>
+
+            <optgroup label="--- CAMIONES PESADOS ---">
+                <option value="JAC HFC1090 8 Ton (Chasis Largo)">JAC HFC1090 8 Ton (Chasis Largo)</option>
+                <option value="JAC Búfalo HFC1131 12 Ton">JAC Búfalo HFC1131 12 Ton</option>
+                <option value="JAC Leyenda 340 HP (20 Toneladas)">JAC Leyenda 340 HP (20 Toneladas)</option>
+                <option value="JAC Bachaco 400 HP / Chuto HFC4251 (40 Ton)">JAC Bachaco 400 HP / Chuto 40-45 Ton</option>
+            </optgroup>
+
             <option value="Otro">Otro (Especificar en comentarios)</option>
         </select>
 
