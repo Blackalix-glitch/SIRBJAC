@@ -303,8 +303,8 @@
 </div>
 
 <script>
-    // PEGA TU ENLACE QUE TERMINA EN /exec EN LUGAR DE 'AQUÍ_PEGA_TU_URL_DE_EXEC'
-    const scriptURL = https://script.google.com/macros/s/AKfycbxpx88gx79JAdFUXC9VRYCAsSy7Ir9ecuBFlKYH-GSgv_Cv_JfcPyy5UeZU7lCeEc9xbg/exec; 
+    // URL de tu web app de Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyDSYp7kJiq0DqKArSyWj1dJK7AVSE4K93eWE6Trya0P3hzPhtnSCr5PEce2DcIlu5CqA/exec'; 
     const form = document.getElementById('sirbForm');
     const statusDiv = document.getElementById('status');
     const btnSubmit = document.getElementById('btnSubmit');
@@ -336,8 +336,8 @@
         const urlWhatsApp = `https://wa.me/${telefonoCliente}?text=${encodeURIComponent(mensaje)}`;
         whatsappBtn.href = urlWhatsApp;
 
-        // Enviar datos a Google Sheets sin bloquear la respuesta de la web app
-        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form)})
+        // Enviar datos a Google Sheets usando FormData
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
                 statusDiv.style.color = '#4caf50';
                 statusDiv.textContent = '¡Registro enviado con éxito!';
@@ -346,7 +346,7 @@
             })
             .catch(error => {
                 statusDiv.style.color = '#f44336';
-                statusDiv.textContent = 'Error al procesar, pero puedes enviar el WhatsApp.';
+                statusDiv.textContent = 'Error al enviar a Google Sheets, pero puedes enviar el WhatsApp.';
                 btnSubmit.disabled = false;
                 whatsappBtn.style.display = 'block';
             });
@@ -355,6 +355,4 @@
 
 </body>
 </html>
-
-</body>
 </html>
