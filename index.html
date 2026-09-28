@@ -277,6 +277,18 @@
             <option value="Otro">Otro (Especificar en comentarios)</option>
         </select>
 
+        <div class="section-title">3. Plan de Compra / Financiamiento</div>
+
+        <label for="plan_compra">Modalidad de Pago / Plan JAC</label>
+        <select id="plan_compra" name="plan_compra">
+            <option value="Credi-JAC 35x35">Credi-JAC 35x35 (Inicial 35% fraccionada + hasta 30 cuotas)</option>
+            <option value="Llévatelo Fiao">Llévatelo Fiao (Inicial en 6 cuotas + 12 cuotas)</option>
+            <option value="Plan Ruta 66">Plan Ruta 66 (Financiamiento especial + seguro 1er año)</option>
+            <option value="Pago Fácil de JAC">Pago Fácil de JAC (9 cuotas iguales + impuesto mes 10)</option>
+            <option value="Compra Directa / Contado">Compra Directa / Contado (Sin intereses)</option>
+            <option value="Deseo Asesoría en Planes">Deseo Asesoría para elegir el mejor plan</option>
+        </select>
+
         <label for="notas">Requerimientos o Comentarios</label>
         <textarea id="notas" name="notas" rows="3" placeholder="Indica detalles específicos o requerimientos adicionales..."></textarea>
 
@@ -305,8 +317,9 @@
 
         // Capturar datos ingresados
         const nombre = document.getElementById('nombre').value.trim();
-        let telefonoCliente = document.getElementById('telefono').value.replace(/[^0-9]/g, ''); // Limpiar el número de espacios o guiones
+        let telefonoCliente = document.getElementById('telefono').value.replace(/[^0-9]/g, '');
         const modelo = document.getElementById('interes').value;
+        const plan = document.getElementById('plan_compra').value;
 
         // Convertir formato telefónico venezolano (ej: 0424... o 424... a 58424...)
         if (telefonoCliente.startsWith('0')) {
@@ -315,8 +328,8 @@
             telefonoCliente = '58' + telefonoCliente;
         }
 
-        // Crear el mensaje personalizado para el cliente
-        const mensaje = `Hola *${nombre}*, gracias por registrarte en el stand de *JAC Auto Agro Maracaibo* en el SIRB. Vemos tu interés en el modelo *${modelo}*. ¿En qué podemos ayudarte de manera inmediata?`;
+        // Mensaje personalizado incluyendo el Modelo y el Plan de Compra
+        const mensaje = `Hola ${nombre}, gracias por registrarte en nuestro stand de JAC / MUNDO BEL en el SIRB. Nos indicaste tu interés en el modelo ${modelo} bajo el plan (${plan}) y me gustaría ampliar la información. Quedo atento a tu respuesta para continuar la interacción.`;
 
         // Generar enlace directo al WhatsApp del cliente
         const urlWhatsApp = `https://wa.me/${telefonoCliente}?text=${encodeURIComponent(mensaje)}`;
@@ -338,6 +351,9 @@
             });
     });
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
