@@ -99,12 +99,14 @@
             color: #ffffff;
             outline: none;
             transition: border-color 0.3s;
+            text-transform: uppercase; /* Fuerza la vista en mayúsculas mientras se escribe */
         }
         input:focus, select:focus, textarea:focus {
             border-color: #c87d55;
         }
         input::placeholder, textarea::placeholder {
             color: #777777;
+            text-transform: none;
         }
         select option, select optgroup {
             background-color: #2a2a2a;
@@ -196,11 +198,11 @@
         <div class="row">
             <div class="col">
                 <label for="nombre">Nombre *</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Carlos">
+                <input type="text" id="nombre" name="nombre" required placeholder="EJ: CARLOS">
             </div>
             <div class="col">
                 <label for="apellido">Apellido *</label>
-                <input type="text" id="apellido" name="apellido" required placeholder="Ej: Mendoza">
+                <input type="text" id="apellido" name="apellido" required placeholder="EJ: MENDOZA">
             </div>
         </div>
 
@@ -211,86 +213,93 @@
             </div>
             <div class="col">
                 <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com">
+                <input type="email" id="email" name="email" placeholder="EJEMPLO@CORREO.COM">
             </div>
         </div>
 
         <label for="empresa">Empresa / Institución (Opcional)</label>
-        <input type="text" id="empresa" name="empresa" placeholder="Ej: Auto Agro">
+        <input type="text" id="empresa" name="empresa" placeholder="EJ: AUTO AGRO">
 
         <div class="row">
             <div class="col">
                 <label for="ciudad">Ciudad *</label>
-                <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Maracaibo">
+                <input type="text" id="ciudad" name="ciudad" required placeholder="EJ: MARACAIBO">
             </div>
             <div class="col">
                 <label for="estado">Estado *</label>
-                <input type="text" id="estado" name="estado" required placeholder="Ej: Zulia">
+                <input type="text" id="estado" name="estado" required placeholder="EJ: ZULIA">
             </div>
         </div>
 
         <label for="perfil">Perfil Profesional / Ocupación</label>
         <select id="perfil" name="perfil">
-            <option value="Productor / Empresario">Productor / Empresario</option>
-            <option value="Comerciante">Comerciante</option>
-            <option value="Médico Veterinario / Zootecnista">Médico Veterinario / Zootecnista</option>
-            <option value="Investigador / Docente">Investigador / Docente</option>
-            <option value="Estudiante">Estudiante</option>
-            <option value="Otro">Otro</option>
+            <option value="PRODUCTOR / EMPRESARIO">PRODUCTOR / EMPRESARIO</option>
+            <option value="COMERCIANTE">COMERCIANTE</option>
+            <option value="MÉDICO VETERINARIO / ZOOTECNISTA">MÉDICO VETERINARIO / ZOOTECNISTA</option>
+            <option value="INVESTIGADOR / DOCENTE">INVESTIGADOR / DOCENTE</option>
+            <option value="ESTUDIANTE">ESTUDIANTE</option>
+            <option value="OTRO">OTRO</option>
         </select>
 
         <div class="section-title">2. Interés Comercial / Flota JAC</div>
 
         <label for="interes">Modelo de Interés</label>
         <select id="interes" name="interes">
-            <optgroup label="--- GAMA JAC ARENA ---">
-                <option value="JAC Arena Sport (Manual)">JAC Arena Sport (Manual)</option>
-                <option value="JAC Arena Sport (Automática / AT)">JAC Arena Sport (Automática / AT)</option>
-                <option value="JAC Arena Pro (Manual)">JAC Arena Pro (Manual)</option>
-                <option value="JAC Arena Pro (Automática / AT)">JAC Arena Pro (Automática / AT)</option>
+            <optgroup label="--- PICK-UPS Y UTILITARIOS (LÍNEA COMPLETA) ---">
+                <option value="JAC T9 AVENTURA 4X4">JAC T9 AVENTURA 4X4</option>
+                <option value="JAC T8 PRO 4X4 / 4X2 TURBO">JAC T8 PRO 4X4 / 4X2 TURBO</option>
+                <option value="JAC TEPUY PRO 4X4">JAC TEPUY PRO 4X4</option>
+                <option value="JAC LA VENEZOLANA (T6) 4X2 / 4X4">JAC LA VENEZOLANA (T6) 4X2 / 4X4</option>
+                <option value="JAC LA VENEZOLANA 2.8L DIÉSEL">JAC LA VENEZOLANA 2.8L DIÉSEL</option>
+                <option value="JAC SAVANNA TURBO DIESEL">JAC SAVANNA TURBO DIESEL</option>
+                <option value="JAC X100 CABINA SENCILLA / 1.5 TON">JAC X100 CABINA SENCILLA / 1.5 TON</option>
+                <option value="JAC C-3500 4X4 CHASIS">JAC C-3500 4X4 CHASIS</option>
             </optgroup>
 
-            <optgroup label="--- OTRAS PICK-UPS Y UTILITARIOS ---">
-                <option value="JAC T9 Aventura 4x4">JAC T9 Aventura 4x4</option>
-                <option value="JAC La Venezolana 2.8L Diésel">JAC La Venezolana 2.8L Diésel</option>
-                <option value="JAC X100 Ferretero / 1.5 Ton">JAC X100 Ferretero / 1.5 Ton</option>
-                <option value="JAC C-3500 4x4 Chasis">JAC C-3500 4x4 Chasis</option>
+            <optgroup label="--- GAMA JAC ARENA Y SUVS ---">
+                <option value="JAC ARENA SPORT (MANUAL)">JAC ARENA SPORT (MANUAL)</option>
+                <option value="JAC ARENA SPORT (AUTOMÁTICA / AT)">JAC ARENA SPORT (AUTOMÁTICA / AT)</option>
+                <option value="JAC ARENA PRO (MANUAL)">JAC ARENA PRO (MANUAL)</option>
+                <option value="JAC ARENA PRO (AUTOMÁTICA / AT)">JAC ARENA PRO (AUTOMÁTICA / AT)</option>
+                <option value="JAC JS4 / NEVADO">JAC JS4 / NEVADO</option>
+                <option value="JAC JS8 PLUS 3 FILAS">JAC JS8 PLUS 3 FILAS</option>
             </optgroup>
 
             <optgroup label="--- CAMIONES LIVIANOS Y MEDIANOS ---">
-                <option value="JAC Urban Chasis 3 Ton">JAC Urban Chasis 3 Ton</option>
-                <option value="JAC Urban Ferretero 3 Ton">JAC Urban Ferretero 3 Ton</option>
-                <option value="JAC Doble Cabina 3 Ton">JAC Doble Cabina 3 Ton</option>
-                <option value="JAC HFC1040 3.5 Ton Chasis">JAC HFC1040 3.5 Ton Chasis</option>
-                <option value="JAC HFC1071 5 Ton">JAC HFC1071 5 Ton</option>
-                <option value="JAC 6T Chasis (6 Toneladas)">JAC 6T Chasis (6 Toneladas)</option>
-                <option value="JAC 6T Ferretero (6 Toneladas)">JAC 6T Ferretero (6 Toneladas)</option>
+                <option value="JAC URBAN CHASIS 3 TON">JAC URBAN CHASIS 3 TON</option>
+                <option value="JAC URBAN FERRETERO 3 TON">JAC URBAN FERRETERO 3 TON</option>
+                <option value="JAC DOBLE CABINA 3 TON">JAC DOBLE CABINA 3 TON</option>
+                <option value="JAC HFC1040 3.5 TON CHASIS">JAC HFC1040 3.5 TON CHASIS</option>
+                <option value="JAC HFC1071 5 TON">JAC HFC1071 5 TON</option>
+                <option value="JAC 6T CHASIS (6 TONELADAS)">JAC 6T CHASIS (6 TONELADAS)</option>
+                <option value="JAC 6T FERRETERO (6 TONELADAS)">JAC 6T FERRETERO (6 TONELADAS)</option>
             </optgroup>
 
             <optgroup label="--- CAMIONES PESADOS ---">
-                <option value="JAC HFC1090 8 Ton (Chasis Largo)">JAC HFC1090 8 Ton (Chasis Largo)</option>
-                <option value="JAC Búfalo HFC1131 12 Ton">JAC Búfalo HFC1131 12 Ton</option>
-                <option value="JAC Leyenda 340 HP (20 Toneladas)">JAC Leyenda 340 HP (20 Toneladas)</option>
-                <option value="JAC Bachaco 400 HP / Chuto HFC4251 (40 Ton)">JAC Bachaco 400 HP / Chuto 40-45 Ton</option>
+                <option value="JAC HFC1090 8 TON (CHASIS LARGO)">JAC HFC1090 8 TON (CHASIS LARGO)</option>
+                <option value="JAC BÚFALO HFC1131 12 TON">JAC BÚFALO HFC1131 12 TON</option>
+                <option value="JAC LEYENDA 340 HP (20 TONELADAS)">JAC LEYENDA 340 HP (20 TONELADAS)</option>
+                <option value="JAC BACHACO 400 HP / CHUTO (40 TON)">JAC BACHACO 400 HP / CHUTO (40 TON)</option>
             </optgroup>
 
-            <option value="Otro">Otro (Especificar en comentarios)</option>
+            <option value="OTRO">OTRO (ESPECIFICAR EN COMENTARIOS)</option>
         </select>
 
         <div class="section-title">3. Plan de Compra / Financiamiento</div>
 
         <label for="plan_compra">Modalidad de Pago / Plan JAC</label>
         <select id="plan_compra" name="plan_compra">
-            <option value="Credi-JAC 35x35">Credi-JAC 35x35 (Inicial 35% fraccionada + hasta 30 cuotas)</option>
-            <option value="Llévatelo Fiao">Llévatelo Fiao (Inicial en 6 cuotas + 12 cuotas)</option>
-            <option value="Plan Ruta 66">Plan Ruta 66 (Financiamiento especial + seguro 1er año)</option>
-            <option value="Pago Fácil de JAC">Pago Fácil de JAC (9 cuotas iguales + impuesto mes 10)</option>
-            <option value="Compra Directa / Contado">Compra Directa / Contado (Sin intereses)</option>
-            <option value="Deseo Asesoría en Planes">Deseo Asesoría para elegir el mejor plan</option>
+            <option value="CREDI-JAC 35X35">CREDI-JAC 35X35 (INICIAL 35% FRACCIONADA + HASTA 30 CUOTAS)</option>
+            <option value="LLÉVATELO FIAO">LLÉVATELO FIAO (INICIAL EN 6 CUOTAS + 12 CUOTAS)</option>
+            <option value="PLAN RUTA 66">PLAN RUTA 66 (FINANCIAMIENTO ESPECIAL + SEGURO 1ER AÑO)</option>
+            <option value="PAGO FÁCIL DE JAC">PAGO FÁCIL DE JAC (9 CUOTAS IGUALES + IMPUESTO MES 10)</option>
+            <option value="COMPRA DIRECTA">COMPRA DIRECTA (OFERTA O PROGRAMA ESPECIAL DIRECTO)</option>
+            <option value="CONTADO">CONTADO (PAGO ÚNICO SIN FINANCIAMIENTO)</option>
+            <option value="DESEO ASESORÍA EN PLANES">DESEO ASESORÍA PARA ELEGIR EL MEJOR PLAN</option>
         </select>
 
         <label for="notas">Requerimientos o Comentarios</label>
-        <textarea id="notas" name="notas" rows="3" placeholder="Indica detalles específicos o requerimientos adicionales..."></textarea>
+        <textarea id="notas" name="notas" rows="3" placeholder="INDICA DETALLES ESPECÍFICOS O REQUERIMIENTOS ADICIONALES..."></textarea>
 
         <button type="submit" id="btnSubmit">Solicitar Cotización / Registro</button>
     </form>
@@ -303,12 +312,19 @@
 </div>
 
 <script>
-    // URL de tu web app de Google Apps Script
+    // URL de la App Web desplegada en Google Apps Script
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyDSYp7kJiq0DqKArSyWj1dJK7AVSE4K93eWE6Trya0P3hzPhtnSCr5PEce2DcIlu5CqA/exec'; 
     const form = document.getElementById('sirbForm');
     const statusDiv = document.getElementById('status');
     const btnSubmit = document.getElementById('btnSubmit');
     const whatsappBtn = document.getElementById('whatsappBtn');
+
+    // Convertir dinámicamente todos los campos de texto a Mayúsculas al escribir
+    document.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(element => {
+        element.addEventListener('input', e => {
+            e.target.value = e.target.value.toUpperCase();
+        });
+    });
 
     form.addEventListener('submit', e => {
         e.preventDefault();
@@ -316,11 +332,11 @@
         statusDiv.style.color = '#a0a0a0';
         statusDiv.textContent = 'Enviando registro...';
 
-        // Capturar datos ingresados
-        const nombre = document.getElementById('nombre').value.trim();
+        // Capturar datos e imponemos mayúsculas por seguridad
+        const nombre = document.getElementById('nombre').value.trim().toUpperCase();
         let telefonoCliente = document.getElementById('telefono').value.replace(/[^0-9]/g, '');
-        const modelo = document.getElementById('interes').value;
-        const plan = document.getElementById('plan_compra').value;
+        const modelo = document.getElementById('interes').value.toUpperCase();
+        const plan = document.getElementById('plan_compra').value.toUpperCase();
 
         // Convertir formato telefónico venezolano (ej: 0424... o 424... a 58424...)
         if (telefonoCliente.startsWith('0')) {
@@ -329,30 +345,32 @@
             telefonoCliente = '58' + telefonoCliente;
         }
 
-        // Mensaje personalizado incluyendo el Modelo y el Plan de Compra
-        const mensaje = `Hola ${nombre}, gracias por registrarte en nuestro stand de JAC / MUNDO BEL en el SIRB. Nos indicaste tu interés en el modelo ${modelo} bajo el plan (${plan}) y me gustaría ampliar la información. Quedo atento a tu respuesta para continuar la interacción.`;
+        // Mensaje personalizado en Mayúsculas con la plantilla solicitada
+        const mensaje = `HOLA ${nombre}, GRACIAS POR REGISTRARTE EN NUESTRO STAND DE JAC / MUNDO BEL EN EL SIRB. NOS INDICASTE TU INTERÉS EN EL MODELO ${modelo} BAJO EL PLAN (${plan}) Y ME GUSTARÍA AMPLIAR LA INFORMACIÓN. QUEDO ATENTO A TU RESPUESTA PARA CONTINUAR LA INTERACCIÓN.`;
 
         // Generar enlace directo al WhatsApp del cliente
         const urlWhatsApp = `https://wa.me/${telefonoCliente}?text=${encodeURIComponent(mensaje)}`;
         whatsappBtn.href = urlWhatsApp;
 
-        // Enviar datos a Google Sheets usando FormData
+        // Enviar datos a la hoja de cálculo de Google
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
                 statusDiv.style.color = '#4caf50';
-                statusDiv.textContent = '¡Registro enviado con éxito!';
+                statusDiv.textContent = '¡REGISTRO ENVIADO CON ÉXITO!';
                 btnSubmit.disabled = false;
                 whatsappBtn.style.display = 'block';
             })
             .catch(error => {
                 statusDiv.style.color = '#f44336';
-                statusDiv.textContent = 'Error al enviar a Google Sheets, pero puedes enviar el WhatsApp.';
+                statusDiv.textContent = 'ERROR AL ENVIAR A GOOGLE SHEETS, PERO PUEDES ENVIAR EL WHATSAPP.';
                 btnSubmit.disabled = false;
                 whatsappBtn.style.display = 'block';
             });
     });
 </script>
 
+</body>
+</html>
 </body>
 </html>
 </html>
