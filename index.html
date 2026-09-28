@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -155,6 +156,7 @@
             font-size: 14px;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
         }
         .footer-location {
             text-align: center;
@@ -206,7 +208,7 @@
         <div class="row">
             <div class="col">
                 <label for="telefono">Teléfono / WhatsApp *</label>
-                <input type="tel" id="telefono" name="telefono" required placeholder="+58 412 123 4567">
+                <input type="tel" id="telefono" name="telefono" required placeholder="04121234567">
             </div>
             <div class="col">
                 <label for="email">Correo Electrónico</label>
@@ -283,7 +285,7 @@
     </form>
 
     <div id="status" class="status"></div>
-    <a href="https://wa.me/584120000000?text=Hola,%20acabo%20de%20registrarme%20en%20el%20SIRB%20y%20deseo%20atencion%20inmediata." target="_blank" id="whatsappBtn" class="whatsapp-btn">💬 Atención Inmediata por WhatsApp</a>
+    <a id="whatsappBtn" class="whatsapp-btn" target="_blank">💬 Atención Inmediata por WhatsApp</a>
 
     <div class="footer-location">Maracaibo • Zulia • Venezuela</div>
     <div class="signature">Desarrollado por AMGG</div>
@@ -296,29 +298,52 @@
     const btnSubmit = document.getElementById('btnSubmit');
     const whatsappBtn = document.getElementById('whatsappBtn');
 
+    // CONFIGURA AQUÍ TU NÚMERO DE VENTAS O ATENCIÓN AL CLIENTE (con código 58 al inicio)
+    const TU_NUMERO_VENTAS = '584120000000'; 
+
     form.addEventListener('submit', e => {
         e.preventDefault();
         btnSubmit.disabled = true;
         statusDiv.style.color = '#a0a0a0';
         statusDiv.textContent = 'Enviando registro...';
 
+        // Capturar datos del cliente
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        let telefonoCliente = document.getElementById('telefono').value.trim();
+        const modelo = document.getElementById('interes').value;
+        const empresa = document.getElementById('empresa').value;
+
+        // Construir mensaje dinámico que llegará a tu WhatsApp
+        const mensaje = `📌 *ATENCIÓN INMEDIATA - SIRB*\n\n` +
+                        `El cliente *${nombre} ${apellido}* (${empresa}) acaba de registrarse en el stand.\n\n` +
+                        `🚘 *Modelo de Interés:* ${modelo}\n` +
+                        `📞 *Teléfono Cliente:* ${telefonoCliente}\n\n` +
+                        `_Requiere atención prioritaria en el evento._`;
+
+        // Generar enlace hacia tu número de ventas
+        const urlWhatsApp = `https://wa.me/${+58 4127513593}?text=${encodeURIComponent(mensaje)}`;
+        whatsappBtn.href = urlWhatsApp;
+
+        // Enviar datos a Google Sheets
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
                 statusDiv.style.color = '#4caf50';
                 statusDiv.textContent = '¡Registro enviado con éxito! Gracias por registrarte.';
-                form.reset();
                 btnSubmit.disabled = false;
                 whatsappBtn.style.display = 'block';
             })
             .catch(error => {
                 statusDiv.style.color = '#f44336';
-                statusDiv.textContent = 'Error al enviar. Intenta de nuevo.';
+                statusDiv.textContent = 'Error al enviar a la hoja. Se generó el enlace de WhatsApp.';
                 btnSubmit.disabled = false;
+                whatsappBtn.style.display = 'block';
             });
     });
 </script>
 
 </body>
+</html>
 </html>
 </body>
 </html>
