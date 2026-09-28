@@ -61,14 +61,14 @@
             line-height: 1.4;
         }
         .section-title {
-            color: #d32f2f;
+            color: #ff3333;
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 25px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #333333;
+            border-bottom: 1px solid #ff3333;
             padding-bottom: 5px;
         }
         .row {
@@ -101,7 +101,7 @@
             transition: border-color 0.3s;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: #d32f2f;
+            border-color: #ff3333;
         }
         input::placeholder, textarea::placeholder {
             color: #777777;
@@ -112,7 +112,7 @@
         }
         optgroup {
             font-weight: bold;
-            color: #d32f2f;
+            color: #ff3333;
         }
         button { 
             width: 100%; 
@@ -214,14 +214,17 @@
             </div>
         </div>
 
+        <label for="empresa">Empresa / Institución *</label>
+        <input type="text" id="empresa" name="empresa" required placeholder="Ej: Auto Agro">
+
         <div class="row">
-            <div class="col">
-                <label for="empresa">Empresa / Institución *</label>
-                <input type="text" id="empresa" name="empresa" required placeholder="Ej: Auto Agro">
-            </div>
             <div class="col">
                 <label for="ciudad">Ciudad *</label>
                 <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Maracaibo">
+            </div>
+            <div class="col">
+                <label for="estado">Estado *</label>
+                <input type="text" id="estado" name="estado" required placeholder="Ej: Zulia">
             </div>
         </div>
 
